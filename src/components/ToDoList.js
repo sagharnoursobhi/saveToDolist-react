@@ -4,12 +4,11 @@ class ToDolist extends React.Component{
 
     render(){
         return(
-                <ul>
-                    {this.props.todos.map(todo =>
-
-                        <ToDoItem key={todo.id} todo={todo}/>//after com back it will be a list
-                    )}
-                </ul>
+            <ul>
+                {this.props.valueList.map(todo=>
+                    <ToDoItem key={todo.id} valueList={todo} finalHandler={this.props.onchangeMethod}/>
+                )}
+            </ul>
         )
     }
 }

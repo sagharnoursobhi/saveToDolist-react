@@ -1,8 +1,9 @@
 import React from 'react';
 import ToDolist from './ToDoList'
+import Header from './Header';
 
 class TodoContainer extends React.Component{
-    state = {
+    state = { //first method which is a state data
         todos : [
             {
                 id : 1,
@@ -23,12 +24,16 @@ class TodoContainer extends React.Component{
             }
         ]
     };
+    onchangeHandler = (id) =>{ //second method which is a handler
+        console.log('clicked' , id)
+    };//making todocontainer as a handler event to communicate with todoitem(raiser)
 
 render(){
     return(
 
         <ul>
-            <ToDolist todos={this.state.todos}/> 
+            <Header/>
+            <ToDolist valueList={this.state.todos} onchangeMethod={this.onchangeHandler}/> 
         </ul>
 
     )
