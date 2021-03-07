@@ -11,13 +11,13 @@ import React from 'react';
 class ToDoItem extends React.Component{// it is equal to function todoitem(props) and onchange makes the checkbox unclickable
     render(){
     return (
-        <header>
+        <>
             <input 
             type="checkbox" checked="props.todo.completed"
-            onChange={() => this.props.finalHandler(this.props.valueList.id)}
+            onChange={() => this.props.finalHandler(this.props.todo.id)}
             />
-            <li>{this.props.valueList.title}</li>
-        </header>
+            <li>{this.props.todo.title}</li>
+        </>
         )
 }
 

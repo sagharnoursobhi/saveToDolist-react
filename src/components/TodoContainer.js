@@ -24,21 +24,34 @@ class TodoContainer extends React.Component{
             }
         ]
     };
-    onchangeHandler = (id) =>{ //second method which is a handler
-        console.log('clicked' , id)
-    };//making todocontainer as a handler event to communicate with todoitem(raiser)
+    onchangeHandler = id =>{ //second method which is a handler...
+        this.setState( prevState=>(    //a loop going through the state ids
+            {
+                todos: prevState.todos.map(todo =>{
+                    if(todo.id === id){
+                    return{
+                        ...todo,
+                        completed: !todo.completed
+                    }
+                    return todo
+                }
+                return todo
+            }),
+          }));
+                //making todocontainer as a handler event to communicate with todoitem(raiser)
 
 render(){
     return(
 
         <ul>
             <Header/>
-            <ToDolist valueList={this.state.todos} onchangeMethod={this.onchangeHandler}/> 
+            <ToDolist todos={this.state.todos} onchangeMethod={this.onchangeHandler}/> 
         </ul>
 
     )
 };
 
-}//todos will be sent as props to todolist
+}
+}
 
 export default TodoContainer;
