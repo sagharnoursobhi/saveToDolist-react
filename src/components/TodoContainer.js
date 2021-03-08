@@ -1,6 +1,7 @@
 import React from 'react';
 import ToDolist from './ToDoList'
 import Header from './Header';
+import InputToDo from "./InputToDo";
 
 class TodoContainer extends React.Component{
     state = { //first method which is a state data
@@ -51,6 +52,7 @@ render(){
     return(
 
         <ul>
+            <InputToDo/>
             <Header/>
             <ToDolist todos={this.state.todos} handlerChange={this.onchangeHandler} delToDoProps={this.delToDo}/> 
         </ul>
