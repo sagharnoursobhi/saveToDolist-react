@@ -33,25 +33,32 @@ class TodoContainer extends React.Component{
                         ...todo,
                         completed: !todo.completed
                     }
-                    return todo
                 }
-                return todo
+                return todo //return the found todo with all previos properties values except completed:!completed
             }),
-          }));
+          }))
+        };
                 //making todocontainer as a handler event to communicate with todoitem(raiser)
+        delToDo = id =>{
+            this.setState({
+            todos :[ ...this.state.todos.filter(todo=>{
+                return todo.id !== id;// pay attention to the condition part
+            })
 
+            ]
+        })}
 render(){
     return(
 
         <ul>
             <Header/>
-            <ToDolist todos={this.state.todos} onchangeMethod={this.onchangeHandler}/> 
+            <ToDolist todos={this.state.todos} handlerChange={this.onchangeHandler} delToDoProps={this.delToDo}/> 
         </ul>
 
     )
 };
 
 }
-}
+
 
 export default TodoContainer;

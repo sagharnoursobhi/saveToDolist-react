@@ -4,5 +4,5 @@ import TodoContainer from './components/TodoContainer.js'
 // const element = <h1>hello react</h1>;
 
 // ReactDom.render(element , document.getElementById('root'));
-ReactDom.render(<TodoContainer/>, document.getElementById('root'));
+ReactDom.render(<React.StrictMode><TodoContainer/></React.StrictMode>, document.getElementById('root'));
 //to see the warnings in console we use React.strictmode around the component into the DOM

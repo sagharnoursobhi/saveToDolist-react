@@ -13,9 +13,10 @@ class ToDoItem extends React.Component{// it is equal to function todoitem(props
     return (
         <>
             <input 
-            type="checkbox" checked="props.todo.completed"
-            onChange={() => this.props.finalHandler(this.props.todo.id)}
+            type="checkbox" checked="this.props.todo.completed"
+            onChange={() => this.props.handlerChange(this.props.todo.id)}
             />
+            <button onClick={()=>this.props.delToDoProps(this.props.todo.id)}>Delete</button>
             <li>{this.props.todo.title}</li>
         </>
         )
